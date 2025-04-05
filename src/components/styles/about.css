@@ -1,0 +1,189 @@
+.about {
+  padding: 6rem 0;
+  background-color: var(--background-color);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.about.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-number {
+  color: var(--accent-color);
+  font-family: 'Fira Code', monospace;
+  font-size: 1.5rem;
+}
+
+.about-description {
+  margin-bottom: 3rem;
+}
+
+.about-description p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.skills-list h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-color);
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+}
+
+.skill-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--accent-color), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.skill-item:hover {
+  transform: translateX(10px);
+  border-color: var(--accent-color);
+}
+
+.skill-item:hover::before {
+  opacity: 0.05;
+}
+
+.skill-icon {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover .skill-icon {
+  transform: translateX(5px);
+}
+
+.about-image {
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+
+.image-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--accent-color);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: var(--card-background);
+}
+
+.image-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--accent-color), transparent);
+  opacity: 0.1;
+  transition: opacity 0.3s ease;
+}
+
+.image-frame:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px var(--shadow-color);
+}
+
+.image-frame:hover::before {
+  opacity: 0.2;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://via.placeholder.com/500') center/cover;
+  transition: transform 0.3s ease;
+}
+
+.image-frame:hover .image-overlay {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-image {
+    order: -1;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+} 
